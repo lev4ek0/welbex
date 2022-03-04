@@ -23,7 +23,7 @@ let sort_type = "";
 request();
 
 function request() {
-    fetch(`http://127.0.0.1:8000/api/table/?limit=${limit}&offset=${offset}&thead=${thead}&eq=${eq}&value=${encodeURI(value)}&sort_by=${sort_by}&sort_type=${sort_type}`, {
+    fetch(`https://welbex-lev.herokuapp.com/api/table/?limit=${limit}&offset=${offset}&thead=${thead}&eq=${eq}&value=${encodeURI(value)}&sort_by=${sort_by}&sort_type=${sort_type}`, {
         method: 'GET',
         headers: {
             Accept: 'application/json',
