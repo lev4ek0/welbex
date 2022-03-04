@@ -56,6 +56,6 @@ def get_table_and_amount(data):
     sort_type = data['sort_type']
     if sort_type:
         sort_by = data['sort_by']
-        do_sort(table, sort_by, sort_type)
+        table = do_sort(table, sort_by, sort_type)
     amount = math.ceil(len(table) / limit)
     return table[offset * limit:(offset + 1) * limit], amount
