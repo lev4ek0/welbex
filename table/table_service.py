@@ -50,12 +50,18 @@ def get_table_and_amount(data):
     if value:
         thead = data['thead']
         eq = data['eq']
-        table = do_filter(value, thead, eq)
+        if eq and thead:
+            table = do_filter(value, thead, eq)
+        else:
+            raise HTTP400(f'Укажите thead и eq')
     else:
         table = Table.objects.all()
     sort_type = data['sort_type']
     if sort_type:
         sort_by = data['sort_by']
-        table = do_sort(table, sort_by, sort_type)
+        if sort_by:
+            table = do_sort(table, sort_by, sort_type)
+        else:
+            raise HTTP400(f'Укажите sort_by')
     amount = math.ceil(len(table) / limit)
     return table[offset * limit:(offset + 1) * limit], amount

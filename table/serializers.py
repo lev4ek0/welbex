@@ -24,9 +24,9 @@ class TableRequestSerializer(serializers.Serializer):
     limit = serializers.IntegerField(default=5)
     offset = serializers.IntegerField(default=0)
     value = serializers.CharField(max_length=100, allow_blank=True, required=False, default='')
-    eq = serializers.CharField(max_length=10, allow_blank=True, required=False)
-    thead = serializers.CharField(max_length=20, allow_blank=True, required=False)
-    sort_by = serializers.CharField(max_length=20, allow_blank=True, required=False)
+    eq = serializers.CharField(max_length=10, allow_blank=True, required=False, default='')
+    thead = serializers.CharField(max_length=20, allow_blank=True, required=False, default='')
+    sort_by = serializers.CharField(max_length=20, allow_blank=True, required=False, default='')
     sort_type = serializers.CharField(max_length=10, allow_blank=True, required=False, default='')
 
     def validate(self, attrs):
